@@ -63,9 +63,18 @@ fn echo(args: Vec<String>) -> i32 {
                 interpret_escapes = true;
                 start += 1;
             }
+            "-E" => {
+                interpret_escapes = false;
+                start += 1;
+            }
             "-ne" | "-en" => {
                 newline = false;
                 interpret_escapes = true;
+                start += 1;
+            }
+            "-nE" | "-En" => {
+                newline = false;
+                interpret_escapes = false;
                 start += 1;
             }
             _ => break,
