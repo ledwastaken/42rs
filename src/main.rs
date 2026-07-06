@@ -47,7 +47,7 @@ fn handle_file_input(filename: &str, program_name: &str) -> io::Result<()> {
     }
 }
 
-fn parse_execute_loop<R: Read>(reader: R) -> io::Result<()> {
+fn parse_execute_loop(reader: impl Read) -> io::Result<()> {
     let mut lexer = Lexer::new(reader);
 
     while let Some(ast) = parse_input(&mut lexer) {
